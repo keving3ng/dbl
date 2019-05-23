@@ -5,8 +5,8 @@ class Input extends React.Component {
 
   onFormSubmit = event => {
     event.preventDefault();
-    this.setState({ input: "" });
     this.props.onSubmit(this.state.input);
+    this.setState({ input: "" });
   };
 
   render() {
