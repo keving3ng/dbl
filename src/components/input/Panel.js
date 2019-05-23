@@ -1,5 +1,6 @@
 import React from "react";
 import Input from "./Input";
+import Tag from "./Tag";
 
 class Panel extends React.Component {
   onSearchSubmit = e => {
@@ -7,11 +8,31 @@ class Panel extends React.Component {
   };
   render() {
     return (
-      <div className="ui row">
-        <div className="eight wide column">
-          <Input onSubmit={this.onSearchSubmit} />
+      <div>
+        <div className="ui form">
+          <div className="field">
+            <label>Key</label>
+            <Input onSubmit={this.onSearchSubmit} />
+          </div>
         </div>
-        <div className="eight wide column">Two</div>
+
+        <div className="ui form">
+          <div className="three fields">
+            <div className="six wide field">
+              <label>Key</label>
+              <Input onSubmit={this.onSearchSubmit} />
+            </div>
+
+            <div className="five wide field">
+              <label>Tag</label>
+              <Tag />
+            </div>
+
+            <div className="five wide field">
+              <label>History</label>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

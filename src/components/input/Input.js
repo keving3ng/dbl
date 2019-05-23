@@ -5,22 +5,26 @@ class Input extends React.Component {
 
   onFormSubmit = event => {
     event.preventDefault();
+    this.setState({ input: "" });
     this.props.onSubmit(this.state.input);
   };
 
   render() {
     return (
-      <div className="ui action input">
-        <input
-          type="text"
-          placeholder="Search..."
-          onChange={e => this.setState({ input: e.target.value })}
-          value={this.state.input}
-        />
-        <button className="ui button" onClick={this.onFormSubmit}>
+      <form onSubmit={this.onFormSubmit}>
+        <div className="ui action input">
+          <input
+            type="text"
+            placeholder="Search..."
+            onChange={e => this.setState({ input: e.target.value })}
+            value={this.state.input}
+          />
+        </div>
+
+        <button type="submit" className="ui button">
           Submit
         </button>
-      </div>
+      </form>
     );
   }
 }

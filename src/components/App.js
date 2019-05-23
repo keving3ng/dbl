@@ -9,7 +9,9 @@ const App = () => {
         <div className="ui row">
           <Table />
         </div>
-        <Panel />
+        <div className="ui row">
+          <Panel />
+        </div>
       </div>
     </div>
   );
