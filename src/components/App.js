@@ -1,6 +1,6 @@
 import React from "react";
-import Table from "./Table";
-import Panel from "./input/Panel";
+import Table from "./displays/Table";
+import Panel from "./displays/Panel";
 
 const App = () => {
   return (

@@ -2,14 +2,14 @@ import React from "react";
 import DropDown from "../io/DropDown";
 import AddNewButton from "../io/AddNewButton";
 
-class TagList extends React.Component {
+class KeyList extends React.Component {
   state = {
-    tags: ["Weight", "Colour", "Quantity"]
+    keys: ["Apples", "Oranges", "Pears"]
   };
 
-  addNewTag = tag => {
+  addNewKey = key => {
     this.setState(prevState => ({
-      tags: [...prevState.tags, tag]
+      keys: [...prevState.keys, key]
     }));
   };
 
@@ -17,15 +17,15 @@ class TagList extends React.Component {
     return (
       <div className="ui grid">
         <div className="fourteen wide column">
-          <DropDown data={this.state.tags} typeName="Tag" />
+          <DropDown data={this.state.keys} typeName="Key" />
         </div>
 
         <div className="two wide column">
-          <AddNewButton newtag={this.addNewTag} typeName="Tag" />
+          <AddNewButton newKey={this.addNewKey} typeName="Key" />
         </div>
       </div>
     );
   }
 }
 
-export default TagList;
+export default KeyList;
