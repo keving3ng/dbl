@@ -21,7 +21,7 @@ class TagList extends React.Component {
         </div>
 
         <div className="two wide column">
-          <AddNewButton newtag={this.addNewTag} typeName="Tag" />
+          <AddNewButton addNewFunc={this.addNewTag} typeName="Tag" />
         </div>
       </div>
     );

@@ -21,7 +21,7 @@ class KeyList extends React.Component {
         </div>
 
         <div className="two wide column">
-          <AddNewButton newKey={this.addNewKey} typeName="Key" />
+          <AddNewButton addNewFunc={this.addNewKey} typeName="Key" />
         </div>
       </div>
     );
