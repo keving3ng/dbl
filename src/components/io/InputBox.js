@@ -1,6 +1,6 @@
 import React from "react";
 
-class Input extends React.Component {
+class InputBox extends React.Component {
   state = { input: "" };
 
   onFormSubmit = event => {
@@ -13,7 +13,7 @@ class Input extends React.Component {
     return (
       <form onSubmit={this.onFormSubmit}>
         <div className="ui grid">
-          <div className="twelve wide column" style={{ paddingRight: "0px" }}>
+          <div className="eleven wide column">
             <div className="ui fluid left icon focus input">
               <i className="edit icon" />
               <input
@@ -25,8 +25,7 @@ class Input extends React.Component {
             </div>
           </div>
 
-          <div className="four wide column" style={{ paddingLeft: "22px" }}>
-            {" "}
+          <div className="five wide column">
             <button type="submit" className="ui button">
               Submit
             </button>
@@ -37,4 +36,4 @@ class Input extends React.Component {
   }
 }
 
-export default Input;
+export default InputBox;

@@ -1,12 +1,12 @@
 import React from "react";
 import Table from "./displays/Table";
-import Panel from "./displays/Panel";
+import EditWindow from "./displays/EditWindow";
 
 const App = () => {
   return (
     <div className="ui container" style={{ marginTop: "25px" }}>
+      <EditWindow />
       <Table />
-      <Panel />
     </div>
   );
 };
