@@ -1,19 +1,21 @@
 import React from "react";
+import RowControl from "./RowControl";
 
 const Table = () => {
   return (
     <table className="ui celled table">
       <thead>
         <tr>
-          <th>Key</th>
-          <th>Tag</th>
-          <th>Value</th>
+          <th className="seven wide">Key</th>
+          <th className="seven wide">Value</th>
+          <th className="two wide">Controls</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td data-label="Key">Apple</td>
-          <td data-label="Tag">
+          <td data-label="Key">
+            Name
+            <br />
             Weight
             <br />
             Colour
@@ -23,6 +25,8 @@ const Table = () => {
             Origin
           </td>
           <td data-label="Value">
+            Apple
+            <br />
             1.2 lb
             <br />
             Red
@@ -31,10 +35,14 @@ const Table = () => {
             <br />
             Guatemala
           </td>
+          <td data-label="Controls">
+            <RowControl />
+          </td>
         </tr>
         <tr>
-          <td data-label="Key">Orange</td>
-          <td data-label="Tag">
+          <td data-label="Key">
+            Name
+            <br />
             Weight
             <br />
             Quantity
@@ -42,11 +50,16 @@ const Table = () => {
             Origin
           </td>
           <td data-label="Value">
+            Orange
+            <br />
             1.3 lb
             <br />
             1732
             <br />
             Florida
+          </td>
+          <td data-label="Controls">
+            <RowControl />
           </td>
         </tr>
       </tbody>

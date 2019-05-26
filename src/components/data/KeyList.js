@@ -4,7 +4,7 @@ import AddNewButton from "../io/AddNewButton";
 
 class KeyList extends React.Component {
   state = {
-    keys: ["Apples", "Oranges", "Pears"]
+    keys: ["Name", "Quantity", "Price"]
   };
 
   addNewKey = key => {
@@ -17,13 +17,13 @@ class KeyList extends React.Component {
     return (
       <div className="ui grid">
         <div
-          className="three wide column"
-          style={{ paddingLeft: "30px", paddingRight: "0px" }}
+          className="four wide column"
+          style={{ paddingLeft: "40px", paddingRight: "0px" }}
         >
           <AddNewButton addNewFunc={this.addNewKey} typeName="Key" />
         </div>
 
-        <div className="thirteen wide column">
+        <div className="twelve wide column">
           <DropDown data={this.state.keys} typeName="Key" />
         </div>
       </div>
