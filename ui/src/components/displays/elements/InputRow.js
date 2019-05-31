@@ -1,6 +1,6 @@
 import React from "react";
-import KeyList from "../data/KeyList";
-import InputBox from "../io/InputBox";
+import KeyList from "../../data/KeyList";
+import InputBox from "../../io/InputBox";
 
 class InputRow extends React.Component {
   render() {

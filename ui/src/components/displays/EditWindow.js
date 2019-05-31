@@ -1,9 +1,8 @@
 import React from "react";
 import Popup from "reactjs-popup";
-import InputRow from "./InputRow";
+import InputRow from "./elements/InputRow";
 
 class EditWindow extends React.Component {
-  /* Some test data for now */
   state = { data: [], keys: [] };
 
   componentDidMount() {
@@ -35,7 +34,7 @@ class EditWindow extends React.Component {
                 <div className="twelve wide column">
                   <div className="actions">
                     <button
-                      className="ui compact button"
+                      className="ui blue compact button"
                       onClick={() => {
                         console.log("save");
                         close();
@@ -46,7 +45,7 @@ class EditWindow extends React.Component {
                     </button>
 
                     <button
-                      className="ui compact button"
+                      className="ui red compact button"
                       onClick={() => {
                         console.log("cancel");
                         close();
