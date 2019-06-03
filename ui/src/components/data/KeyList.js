@@ -1,6 +1,6 @@
 import React from "react";
 import DropDown from "../io/DropDown";
-import AddNewButton from "../io/AddNewButton";
+import PlusButton from "../io/PlusButton";
 
 class KeyList extends React.Component {
   state = {
@@ -20,7 +20,7 @@ class KeyList extends React.Component {
           className="four wide column"
           style={{ paddingLeft: "40px", paddingRight: "0px" }}
         >
-          <AddNewButton addNewFunc={this.addNewKey} typeName="Key" />
+          <PlusButton addNewFunc={this.addNewKey} typeName="Key" />
         </div>
 
         <div className="twelve wide column">

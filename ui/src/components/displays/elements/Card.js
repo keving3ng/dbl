@@ -51,7 +51,7 @@ class Card extends React.Component {
           className="ui bottom attached button"
           style={{ paddingTop: "5px", paddingBottom: "5px" }}
         >
-          <RowControl />
+          <RowControl item={this.state.item} />
         </div>
       </div>
     );

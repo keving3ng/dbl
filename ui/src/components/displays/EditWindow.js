@@ -6,7 +6,14 @@ class EditWindow extends React.Component {
   state = { data: [], keys: [] };
 
   componentDidMount() {
-    this.setState({ keys: ["Name", "Quantity", "Price"] });
+    if (this.state.data === []) {
+      this.setState({ keys: ["Name", "Quantity", "Price"] });
+    }
+    if (this.props.data) {
+      this.setState({
+        keys: Object.keys(this.props.data)
+      });
+    }
   }
 
   addNewKey = key => {
@@ -15,10 +22,14 @@ class EditWindow extends React.Component {
     }));
   };
 
+  renderData() {}
+
   render() {
     return (
       <Popup
-        trigger={<button className="ui blue button">Add New</button>}
+        trigger={
+          <button className="ui blue icon button">{this.props.button}</button>
+        }
         modal
       >
         {close => (

@@ -1,15 +1,14 @@
 import React from "react";
+import EditWindow from "../EditWindow";
 
 class RowControl extends React.Component {
   render() {
     return (
       <div>
-        <button
-          className="ui teal icon button"
-          onClick={() => console.log("edit")}
-        >
-          <i className="edit icon" />
-        </button>
+        <EditWindow
+          data={this.props.item}
+          button={<i className="edit icon" />}
+        />
 
         <button
           className="ui yellow icon button"

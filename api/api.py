@@ -5,18 +5,15 @@ app = Flask(__name__)
 api = Api(app)
 
 items = [
-
     {
         "name": "orange",
         "quantity": 203,
         "price": "$1.99"
-    },
-    {
+    }, {
         "name": "apple",
         "quantity": 102,
         "price": "$1.69"
-    },
-    {
+    }, {
         "name": "pear",
         "quantity": 84,
         "price": "$2.69"
@@ -27,11 +24,13 @@ items = [
 class Item(Resource):
 
     def get(self, name):
-        return items
-        # for i in items:
-        #  if (name == i["name"]):
-        #     return i, 200
-        # return "item not found", 404
+        if (name == "all"):
+            return items
+        else:
+            for item in items:
+                if (name == item["name"]):
+                    return item, 200
+            return "Item not found", 404
 
     def post(self, name):
         parser = reqparse.RequestParser()
@@ -77,7 +76,7 @@ class Item(Resource):
         return "{} has been deleted.".format(name), 200
 
 
-api.add_resource(Item, "/item/<string:name>")
+api.add_resource(Item, "/items/<string:name>")
 
 if __name__ == '__main__':
     app.run(debug=True)
