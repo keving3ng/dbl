@@ -18,4 +18,6 @@ Also, in its current state, you will need to run the python api script. The UI r
 ### pip install virtualenv
 ### virtualenv ./api
 ### source ./api/bin/activate
+### pip install gunicorn flask
+### pip install flask-restful
 ### python ./api/api.py
