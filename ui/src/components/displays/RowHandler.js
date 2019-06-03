@@ -2,13 +2,11 @@ import React from "react";
 import InputRow from "./elements/InputRow";
 
 class RowHandler extends React.Component {
-  state = { data: this.props.data, keyList: [] };
+  state = { data: this.props.data, keyList: ["Name"] };
 
-  componentDidMount() {
-    if (this.state.data === undefined || this.state.data.length === 0) {
-      this.setState({ keyList: ["Name"] });
-    } else {
-      this.setState({ keyList: Object.keys(this.props.data) });
+  componentWillMount() {
+    if (this.state.data) {
+      this.setState({ keyList: Object.keys(this.state.data) });
     }
   }
 
