@@ -5,7 +5,7 @@ import EditWindow from "./displays/EditWindow";
 const App = () => {
   return (
     <div className="ui container" style={{ paddingTop: "25px" }}>
-      <EditWindow button="Add New" />
+      <EditWindow button="Add New" data={[]} />
       <br /> <br />
       <CardList />
     </div>

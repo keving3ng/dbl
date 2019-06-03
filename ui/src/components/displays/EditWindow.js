@@ -1,28 +1,24 @@
 import React from "react";
 import Popup from "reactjs-popup";
-import InputRow from "./elements/InputRow";
+import RowHandler from "./RowHandler";
 
 class EditWindow extends React.Component {
-  state = { data: [], keys: [] };
+  state = {
+    item: this.props.data,
+    type: ""
+  };
 
   componentDidMount() {
-    if (this.state.data === []) {
-      this.setState({ keys: ["Name", "Quantity", "Price"] });
-    }
-    if (this.props.data) {
-      this.setState({
-        keys: Object.keys(this.props.data)
-      });
+    if (this.state.item) {
+      this.setState({ type: "edit" });
+    } else {
+      this.setState({ type: "new" });
     }
   }
 
-  addNewKey = key => {
-    this.setState(prevState => ({
-      keys: [...prevState.keys, key]
-    }));
+  onSave = () => {
+    console.log("Save " + this.state.type + this.state.item);
   };
-
-  renderData() {}
 
   render() {
     return (
@@ -33,43 +29,41 @@ class EditWindow extends React.Component {
         modal
       >
         {close => (
-          <div className="modal" style={{ padding: "10px" }}>
+          <div
+            className="modal"
+            style={{ padding: "10px", paddingTop: "25px" }}
+          >
             <div className="ui grid">
-              <div className="ui row">
+              <div className="row">
                 <div
-                  className="ui header four wide column"
-                  style={{ verticalAlign: "true" }}
+                  className="actions"
+                  style={{ paddingLeft: "20px", paddingBottom: "20px" }}
                 >
-                  Add New Item
-                </div>
-                <div className="twelve wide column">
-                  <div className="actions">
-                    <button
-                      className="ui blue compact button"
-                      onClick={() => {
-                        console.log("save");
-                        close();
-                      }}
-                      style={{ verticalAlign: "true" }}
-                    >
-                      Save
-                    </button>
+                  <button
+                    className="ui blue compact button"
+                    onClick={() => {
+                      this.onSave();
+                      close();
+                    }}
+                    style={{ verticalAlign: "true" }}
+                  >
+                    Save
+                  </button>
 
-                    <button
-                      className="ui red compact button"
-                      onClick={() => {
-                        console.log("cancel");
-                        close();
-                      }}
-                      style={{ verticalAlign: "true" }}
-                    >
-                      Cancel
-                    </button>
-                  </div>
+                  <button
+                    className="ui red compact button"
+                    onClick={() => {
+                      close();
+                    }}
+                    style={{ verticalAlign: "true" }}
+                  >
+                    Cancel
+                  </button>
                 </div>
               </div>
-
-              <InputRow />
+            </div>
+            <div className="row">
+              <RowHandler data={this.state.item} />
             </div>
           </div>
         )}

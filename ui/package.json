@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
+    "jquery": "^3.4.1",
     "json-reader-writer": "^1.0.4",
     "jsonfile": "^5.0.0",
     "react": "^16.8.6",
