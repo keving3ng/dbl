@@ -3,6 +3,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Available Scripts
 
 After clone the code to you local workspace, In the project directory, you can run:
+### `$cd ui`
+
 ### `$ npm install`
 
 ### `$ npm start`
@@ -15,14 +17,14 @@ You will also see any lint errors in the console.
 
 Also, in its current state, you will need to run the python api script. The UI retrieves data from the API.
 
+## `$cd api`
+
 ### `$ pip install virtualenv`
 
-### `$ virtualenv ./api`
+### `$ virtualenv .`
 
-### `$ source ./api/bin/activate`
-
-### `$ pip install gunicorn flask`
+### `$ source ./bin/activate`
 
 ### `$ pip install flask-restful`
 
-### `$ python ./api/api.py`
+### `$ python ./api.py`
