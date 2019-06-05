@@ -2,6 +2,7 @@ import React from "react";
 import Popup from "reactjs-popup";
 import InputRow from "../elements/InputRow";
 import ScrollBox from "./ScrollBox";
+import axios from "axios";
 
 class EditWindow extends React.Component {
   state = {
@@ -16,7 +17,13 @@ class EditWindow extends React.Component {
   }
 
   onWindowSubmit = () => {
-    console.log("Save " + this.state.type + this.state.item);
+    // use axios to put
+  };
+
+  addNewData = (key, value) => {
+    const newPair = {};
+    newPair[key] = value;
+    this.setState({ item: Object.assign(this.state.item, newPair) });
   };
 
   onSave = () => {
@@ -33,7 +40,10 @@ class EditWindow extends React.Component {
             </h3>
 
             <div className="ui segment">
-              <InputRow keyList={this.state.keyList} />
+              <InputRow
+                keyList={this.state.keyList}
+                addNewData={this.addNewData}
+              />
             </div>
             <div className="ui segment">
               <ScrollBox data={this.state.item} />

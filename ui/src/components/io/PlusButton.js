@@ -1,8 +1,8 @@
 import React from "react";
 
-const AddNewButton = ({ addNewFunc, typeName }) => {
+const AddNewButton = ({ addKey }) => {
   const PopUp = () => {
-    var newVal = window.prompt("Enter a new " + typeName);
+    var newVal = window.prompt("Enter a new key:");
 
     if (newVal !== "") {
       return newVal;
@@ -15,7 +15,7 @@ const AddNewButton = ({ addNewFunc, typeName }) => {
   };
 
   return (
-    <button className="ui icon button" onClick={() => addNewFunc(PopUp())}>
+    <button className="ui icon button" onClick={() => addKey(PopUp())}>
       <i className="plus icon" />
     </button>
   );

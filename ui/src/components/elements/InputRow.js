@@ -1,8 +1,11 @@
 import React from "react";
+import PlusButton from "../io/PlusButton";
 
 class InputRow extends React.Component {
   state = {
-    keyList: this.props.keyList
+    keyList: this.props.keyList,
+    value: "",
+    selectedKey: "key"
   };
 
   capIfString = input => {
@@ -16,9 +19,19 @@ class InputRow extends React.Component {
     this.setState({ value: event.target.value });
   };
 
+  onDropdownChange = event => {
+    this.setState({ selectedKey: event.target.value });
+  };
+
   onFormSubmit = event => {
     event.preventDefault();
-    console.log("save" + this.state.key + this.state.value);
+    this.props.addNewData(this.state.selectedKey, this.state.value);
+  };
+
+  addKey = key => {
+    this.setState(prevState => ({
+      keyList: [...prevState.keyList, key]
+    }));
   };
 
   renderKeyList = () => {
@@ -33,28 +46,45 @@ class InputRow extends React.Component {
 
   render() {
     return (
-      <form className="ui equal width form" onSubmit={this.onFormSubmit}>
-        <div className="fields">
-          <div className="field">
-            <select selected="Name" className="ui selection dropdown">
-              <option value="">Select</option>
-              {this.renderKeyList()}
-            </select>
+      <div className="ui grid">
+        <div className="ui row">
+          <div className="one wide column">
+            <PlusButton addKey={this.addKey} />
           </div>
+          <div className="fifteen wide column">
+            <form className="ui equal width form" onSubmit={this.onFormSubmit}>
+              <div className="fields">
+                <div className="field">
+                  <select
+                    value={this.state.selectedKey}
+                    onChange={this.onDropdownChange}
+                    className="ui selection dropdown"
+                  >
+                    <option value="">Select</option>
+                    {this.renderKeyList()}
+                  </select>
+                </div>
 
-          <div className="field">
-            <input
-              type="text"
-              value={this.state.value}
-              onChange={this.onInputChange}
-              placeholder="Enter a value"
-            />
+                <div className="field">
+                  <input
+                    type="text"
+                    value={this.state.value}
+                    onChange={this.onInputChange}
+                    placeholder="Enter a value"
+                  />
+                </div>
+                <button
+                  className="ui button"
+                  type="submit"
+                  onSubmit={this.onFormSubmit}
+                >
+                  Add
+                </button>
+              </div>
+            </form>
           </div>
-          <button className="ui button" type="submit">
-            Save
-          </button>
         </div>
-      </form>
+      </div>
     );
   }
 }
