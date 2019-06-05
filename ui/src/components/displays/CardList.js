@@ -9,7 +9,7 @@ class CardList extends React.Component {
     this.getData();
   }
   getData = async () => {
-    const response = await API.get("/all");
+    const response = await API.get("items/all");
 
     this.setState({ data: response.data });
   };

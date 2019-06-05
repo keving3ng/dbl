@@ -1,5 +1,6 @@
 import React from "react";
 import EditWindow from "../displays/EditWindow";
+import API from "../apis";
 
 class RowControl extends React.Component {
   render() {
@@ -17,7 +18,11 @@ class RowControl extends React.Component {
 
         <button
           className="ui red icon button"
-          onClick={() => console.log("delete")}
+          onClick={() =>
+            API.delete(`/items/${this.props.item["name"]}`).then(
+              window.location.reload()
+            )
+          }
         >
           <i className="trash alternate outline icon" />
         </button>

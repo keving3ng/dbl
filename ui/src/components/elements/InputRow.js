@@ -1,16 +1,18 @@
 import React from "react";
-import PlusButton from "../io/PlusButton";
+import NewKeyButton from "../io/NewKeyButton";
 
 class InputRow extends React.Component {
   state = {
     keyList: this.props.keyList,
+    item: this.props.item,
     value: "",
     selectedKey: "key"
   };
 
   capIfString = input => {
     if (typeof input === "string") {
-      return input.charAt(0).toUpperCase() + input.slice(1);
+      const cap = input.charAt(0).toUpperCase() + input.slice(1);
+      return cap;
     }
     return input;
   };
@@ -31,17 +33,20 @@ class InputRow extends React.Component {
 
   addKey = key => {
     this.setState(prevState => ({
-      keyList: [...prevState.keyList, key]
+      keyList: [...prevState.keyList, key.toLowerCase()]
     }));
   };
 
   renderKeyList = () => {
     return this.state.keyList.map(key => {
-      return (
-        <option key={key} value={key}>
-          {this.capIfString(key)}
-        </option>
-      );
+      if (!Object.keys(this.state.item).includes(key)) {
+        return (
+          <option key={key} value={key}>
+            {this.capIfString(key)}
+          </option>
+        );
+      }
+      return null;
     });
   };
 
@@ -50,7 +55,7 @@ class InputRow extends React.Component {
       <div className="ui grid">
         <div className="ui row">
           <div className="one wide column">
-            <PlusButton addKey={this.addKey} />
+            <NewKeyButton addKey={this.addKey} />
           </div>
           <div className="fifteen wide column">
             <form className="ui equal width form" onSubmit={this.onFormSubmit}>
@@ -61,7 +66,7 @@ class InputRow extends React.Component {
                     onChange={this.onDropdownChange}
                     className="ui selection dropdown"
                   >
-                    <option value="">Select a key</option>
+                    <option value="">Select or enter a new key</option>
                     {this.renderKeyList()}
                   </select>
                 </div>

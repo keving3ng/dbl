@@ -2,12 +2,12 @@ import React from "react";
 import Popup from "reactjs-popup";
 import InputRow from "../elements/InputRow";
 import ScrollBox from "./ScrollBox";
-import axios from "axios";
+import API from "../apis";
 
 class EditWindow extends React.Component {
   state = {
     item: this.props.data,
-    keyList: ["Name", "Price"]
+    keyList: ["name", "price", "quantity"]
   };
 
   componentWillMount() {
@@ -23,11 +23,8 @@ class EditWindow extends React.Component {
   };
 
   onSave = () => {
-    const item = {
-      name: this.state.item["name"]
-    };
-
-    axios.put(`http://127.0.0.1:5000/items/`, { item }).then(res => {
+    console.log(Object.keys(this.state.item));
+    API.put(`items/all`, this.state.item).then(res => {
       console.log(res);
       console.log(res.data);
     });
@@ -46,6 +43,7 @@ class EditWindow extends React.Component {
               <InputRow
                 keyList={this.state.keyList}
                 addNewData={this.addNewData}
+                item={this.state.item}
               />
             </div>
             <div className="ui segment">
