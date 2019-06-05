@@ -16,10 +16,6 @@ class EditWindow extends React.Component {
     }
   }
 
-  onWindowSubmit = () => {
-    // use axios to put
-  };
-
   addNewData = (key, value) => {
     const newPair = {};
     newPair[key] = value;
@@ -27,7 +23,14 @@ class EditWindow extends React.Component {
   };
 
   onSave = () => {
-    console.log("save");
+    const item = {
+      name: this.state.item["name"]
+    };
+
+    axios.put(`http://127.0.0.1:5000/items/`, { item }).then(res => {
+      console.log(res);
+      console.log(res.data);
+    });
   };
 
   render() {

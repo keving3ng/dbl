@@ -1,17 +1,18 @@
 import React from "react";
 import Card from "../elements/Card";
+import API from "../apis";
 
 class CardList extends React.Component {
   state = { data: [] };
 
   componentDidMount() {
-    fetch("http://127.0.0.1:5000/items/all")
-      .then(res => res.json())
-      .then(items => {
-        this.setState({ data: items });
-      })
-      .catch(console.log);
+    this.getData();
   }
+  getData = async () => {
+    const response = await API.get("/all");
+
+    this.setState({ data: response.data });
+  };
 
   render() {
     return (

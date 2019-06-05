@@ -26,6 +26,7 @@ class InputRow extends React.Component {
   onFormSubmit = event => {
     event.preventDefault();
     this.props.addNewData(this.state.selectedKey, this.state.value);
+    this.setState({ value: "", selectedKey: "" });
   };
 
   addKey = key => {
@@ -60,7 +61,7 @@ class InputRow extends React.Component {
                     onChange={this.onDropdownChange}
                     className="ui selection dropdown"
                   >
-                    <option value="">Select</option>
+                    <option value="">Select a key</option>
                     {this.renderKeyList()}
                   </select>
                 </div>

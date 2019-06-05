@@ -15,7 +15,7 @@ const App = () => {
       <div className="ui segment" style={{ paddingTop: "25px" }}>
         <EditWindow
           button={<button className="ui blue button">Add item</button>}
-          data={[]}
+          data={{}}
           action="Add new item"
         />
       </div>
