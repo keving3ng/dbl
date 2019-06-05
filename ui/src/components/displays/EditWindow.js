@@ -10,7 +10,7 @@ class EditWindow extends React.Component {
   };
 
   componentWillMount() {
-    if (this.state.item.length > 0) {
+    if (Object.keys(this.state.item).length > 0) {
       this.setState({ keyList: Object.keys(this.state.item) });
     }
   }
