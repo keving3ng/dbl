@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.18.1",
     "jquery": "^3.4.1",
     "json-reader-writer": "^1.0.4",
     "jsonfile": "^5.0.0",
