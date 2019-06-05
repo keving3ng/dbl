@@ -15,7 +15,7 @@ class CardList extends React.Component {
 
   render() {
     return (
-      <div className="ui cards">
+      <div className="ui four cards">
         {this.state.data.map(item => {
           return <Card key={item["name"]} item={item} />;
         })}

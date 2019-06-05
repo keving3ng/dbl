@@ -7,23 +7,13 @@ class RowControl extends React.Component {
       <div>
         <EditWindow
           data={this.props.item}
-          button={<i className="edit icon" />}
+          button={
+            <button className="ui teal icon button">
+              <i className="edit icon" />
+            </button>
+          }
           action="Edit item"
         />
-
-        <button
-          className="ui yellow icon button"
-          onClick={() => console.log("duplicate")}
-        >
-          <i className="copy outline icon" />
-        </button>
-
-        <button
-          className="ui purple icon button"
-          onClick={() => console.log("placeholder")}
-        >
-          <i className="share square icon" />
-        </button>
 
         <button
           className="ui red icon button"

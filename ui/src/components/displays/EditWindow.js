@@ -25,12 +25,7 @@ class EditWindow extends React.Component {
 
   render() {
     return (
-      <Popup
-        trigger={
-          <button className="ui blue icon button">{this.props.button}</button>
-        }
-        modal
-      >
+      <Popup trigger={this.props.button} modal>
         {close => (
           <div className="modal" style={{ padding: "15px" }}>
             <h3 className="ui huge header" style={{ alignContent: "center" }}>
