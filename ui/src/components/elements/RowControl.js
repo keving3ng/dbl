@@ -1,5 +1,5 @@
 import React from "react";
-import EditWindow from "../EditWindow";
+import EditWindow from "../displays/EditWindow";
 
 class RowControl extends React.Component {
   render() {
@@ -8,6 +8,7 @@ class RowControl extends React.Component {
         <EditWindow
           data={this.props.item}
           button={<i className="edit icon" />}
+          action="Edit item"
         />
 
         <button

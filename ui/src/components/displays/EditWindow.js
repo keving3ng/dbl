@@ -1,6 +1,6 @@
 import React from "react";
 import Popup from "reactjs-popup";
-import InputRow from "./elements/InputRow";
+import InputRow from "../elements/InputRow";
 import ScrollBox from "./ScrollBox";
 
 class EditWindow extends React.Component {
@@ -19,6 +19,10 @@ class EditWindow extends React.Component {
     console.log("Save " + this.state.type + this.state.item);
   };
 
+  onSave = () => {
+    console.log("save");
+  };
+
   render() {
     return (
       <Popup
@@ -28,7 +32,11 @@ class EditWindow extends React.Component {
         modal
       >
         {close => (
-          <div className="modal">
+          <div className="modal" style={{ padding: "15px" }}>
+            <h3 className="ui huge header" style={{ alignContent: "center" }}>
+              {this.props.action}
+            </h3>
+
             <div className="ui segment">
               <InputRow keyList={this.state.keyList} />
             </div>
@@ -36,7 +44,7 @@ class EditWindow extends React.Component {
               <ScrollBox data={this.state.item} />
             </div>
 
-            <div style={{ float: "right" }}>
+            <div className="ui right floated segment">
               <button
                 className="ui blue button"
                 onClick={() => {
