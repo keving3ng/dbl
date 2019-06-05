@@ -1,22 +1,21 @@
 import React from "react";
 import Popup from "reactjs-popup";
-import RowHandler from "./RowHandler";
+import InputRow from "./elements/InputRow";
+import ScrollBox from "./ScrollBox";
 
 class EditWindow extends React.Component {
   state = {
     item: this.props.data,
-    type: ""
+    keyList: ["Name", "Price"]
   };
 
-  componentDidMount() {
-    if (this.state.item) {
-      this.setState({ type: "edit" });
-    } else {
-      this.setState({ type: "new" });
+  componentWillMount() {
+    if (this.state.item.length > 0) {
+      this.setState({ keyList: Object.keys(this.state.item) });
     }
   }
 
-  onSave = () => {
+  onWindowSubmit = () => {
     console.log("Save " + this.state.type + this.state.item);
   };
 
@@ -29,41 +28,34 @@ class EditWindow extends React.Component {
         modal
       >
         {close => (
-          <div
-            className="modal"
-            style={{ padding: "10px", paddingTop: "25px" }}
-          >
-            <div className="ui grid">
-              <div className="row">
-                <div
-                  className="actions"
-                  style={{ paddingLeft: "20px", paddingBottom: "20px" }}
-                >
-                  <button
-                    className="ui blue compact button"
-                    onClick={() => {
-                      this.onSave();
-                      close();
-                    }}
-                    style={{ verticalAlign: "true" }}
-                  >
-                    Save
-                  </button>
-
-                  <button
-                    className="ui red compact button"
-                    onClick={() => {
-                      close();
-                    }}
-                    style={{ verticalAlign: "true" }}
-                  >
-                    Cancel
-                  </button>
-                </div>
-              </div>
+          <div className="modal">
+            <div className="ui segment">
+              <InputRow keyList={this.state.keyList} />
             </div>
-            <div className="row">
-              <RowHandler data={this.state.item} />
+            <div className="ui segment">
+              <ScrollBox data={this.state.item} />
+            </div>
+
+            <div style={{ float: "right" }}>
+              <button
+                className="ui blue button"
+                onClick={() => {
+                  this.onSave();
+                  close();
+                }}
+              >
+                Save
+              </button>
+
+              <button
+                className="ui red button"
+                onClick={() => {
+                  close();
+                }}
+                style={{ verticalAlign: "true" }}
+              >
+                Cancel
+              </button>
             </div>
           </div>
         )}

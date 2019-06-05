@@ -2,14 +2,8 @@ import React from "react";
 
 class InputRow extends React.Component {
   state = {
-    keyList: this.props.keyList,
-    key: this.props.currKey,
-    value: this.props.currValue
+    keyList: this.props.keyList
   };
-
-  componentDidMount() {
-    console.log(this.state.key);
-  }
 
   capIfString = input => {
     if (typeof input === "string") {
@@ -24,7 +18,7 @@ class InputRow extends React.Component {
 
   onFormSubmit = event => {
     event.preventDefault();
-    console.log(this.state.key + this.state.value);
+    console.log("save" + this.state.key + this.state.value);
   };
 
   renderKeyList = () => {
@@ -42,7 +36,7 @@ class InputRow extends React.Component {
       <form className="ui equal width form" onSubmit={this.onFormSubmit}>
         <div className="fields">
           <div className="field">
-            <select selected={this.state.key} className="ui selection dropdown">
+            <select selected="Name" className="ui selection dropdown">
               <option value="">Select</option>
               {this.renderKeyList()}
             </select>
@@ -56,6 +50,9 @@ class InputRow extends React.Component {
               placeholder="Enter a value"
             />
           </div>
+          <button className="ui button" type="submit">
+            Save
+          </button>
         </div>
       </form>
     );
