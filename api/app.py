@@ -1,8 +1,11 @@
 from flask import Flask, request
 from flask_restful import reqparse, Resource, Api
+from redis import Redis
+
 
 app = Flask(__name__)
 api = Api(app)
+redis = Redis(host='redis', port=6379)
 
 items = [
     {
@@ -31,24 +34,6 @@ class Item(Resource):
                 if (name == item["name"]):
                     return item, 200
             return "Item not found", 404
-
-    def post(self, name):
-        parser = reqparse.RequestParser()
-        parser.add_argument("quantity")
-        parser.add_argument("price")
-        args = parser.parse_args()
-
-        for i in items:
-            if(name == i["name"]):
-                return "Item with name {} already exists".format(name), 400
-
-        item = {
-            "name": name,
-            "quantity": args["quantity"],
-            "price": args["price"]
-        }
-        items.append(item)
-        return item, 201
 
     def put(self, name):
         parser = reqparse.RequestParser()
@@ -79,4 +64,4 @@ class Item(Resource):
 api.add_resource(Item, "/items/<string:name>")
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host="0.0.0.0", debug=True)
