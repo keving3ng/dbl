@@ -16,18 +16,33 @@ class EditWindow extends React.Component {
     }
   }
 
+  reset() {
+    this.setState({
+      item: this.props.data,
+      keyList: ["name", "price", "quantity"]
+    });
+  }
+
   addNewData = (key, value) => {
     const newPair = {};
     newPair[key] = value;
     this.setState({ item: Object.assign(this.state.item, newPair) });
   };
 
+  deleteRow = key => {
+    let newState = Object.assign({}, this.state);
+    delete newState.item[key];
+    this.setState(newState);
+  };
+
   onSave = () => {
     console.log(Object.keys(this.state.item));
-    API.put(`items/all`, this.state.item).then(res => {
-      console.log(res);
-      console.log(res.data);
-    });
+    API.put(`items/all`, this.state.item)
+      .then(res => {
+        console.log(res);
+        console.log(res.data);
+      })
+      .then(window.location.reload());
   };
 
   render() {
@@ -47,7 +62,7 @@ class EditWindow extends React.Component {
               />
             </div>
             <div className="ui segment">
-              <ScrollBox data={this.state.item} />
+              <ScrollBox data={this.state.item} deleteRow={this.deleteRow} />
             </div>
 
             <div className="ui right floated segment">
@@ -55,6 +70,7 @@ class EditWindow extends React.Component {
                 className="ui blue button"
                 onClick={() => {
                   this.onSave();
+                  this.reset();
                   close();
                 }}
               >
@@ -64,6 +80,7 @@ class EditWindow extends React.Component {
               <button
                 className="ui red button"
                 onClick={() => {
+                  this.reset();
                   close();
                 }}
                 style={{ verticalAlign: "true" }}

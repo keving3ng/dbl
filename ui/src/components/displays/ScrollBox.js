@@ -16,8 +16,6 @@ class ScrollBox extends React.Component {
     return input;
   };
 
-  deleteRow = item => {};
-
   renderData = () => {
     if (this.state.item !== undefined) {
       return Object.keys(this.state.item).map(key => {
@@ -29,7 +27,7 @@ class ScrollBox extends React.Component {
               {
                 <button
                   className="ui icon button"
-                  onClick={() => this.deleteRow(key)}
+                  onClick={() => this.props.deleteRow(key)}
                 >
                   <i className="trash icon" />
                 </button>
