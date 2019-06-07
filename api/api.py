@@ -36,6 +36,7 @@ class Item(Resource):
             "price": args["price"]
         }
         items.append(item)
+        json.dump(items, "data.json")
         return item, 201
 
     def put(self, name):
@@ -56,11 +57,13 @@ class Item(Resource):
             "price": args["price"]
         }
         items.append(item)
+        json.dump(items, "data.json")
         return item, 201
 
     def delete(self, name):
         global items
         items = [item for item in items if item["name"] != name]
+        json.dump(items, "data.json")
         return "{} has been deleted.".format(name), 200
 
 
