@@ -36,12 +36,9 @@ class EditWindow extends React.Component {
   };
 
   onSave = () => {
-    console.log(Object.keys(this.state.item));
-    API.put(`items/all`, this.state.item)
-      .then(res => {
-        console.log(res);
-        console.log(res.data);
-      })
+    API.put(`items/` + this.state.item["name"], this.state.item)
+      .then(r => console.log(r.status))
+      .catch(e => console.log(e))
       .then(window.location.reload());
   };
 
