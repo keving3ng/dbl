@@ -1,73 +1,39 @@
-from flask import Flask, request
-from flask_restful import reqparse, Resource, Api
+from flask import Flask, request, jsonify
+from flask_restful import Resource, Api
+from bson.json_util import dumps
+from pymongo import MongoClient
 import json
+
+client = MongoClient('mongodb://localhost:27017')
+
+db = client.items
+inv = db.inventory
 
 app = Flask(__name__)
 api = Api(app)
 
-with open('data.json') as json_file:
-    items = json.load(json_file)
 
-
-class Item(Resource):
-
+class Inventory(Resource):
     def get(self, name):
-        if (name == "all"):
-            return items
+        if (name == 'all'):
+            return json.loads(dumps(inv.find({}, {'_id': 0}))), 200
+        elif (inv.find_one({'name': name})):
+            return json.loads(dumps(inv.find_one({'name': name}, {'_id': 0}))), 200
         else:
-            for item in items:
-                if (name == item["name"]):
-                    return item, 200
-            return "Item not found", 404
+            return "Item not found", 400
 
-    def post(self, name):
-        parser = reqparse.RequestParser()
-        parser.add_argument("quantity")
-        parser.add_argument("price")
-        args = parser.parse_args()
-
-        for i in items:
-            if(name == i["name"]):
-                return "Item with name {} already exists".format(name), 400
-
-        item = {
-            "name": name,
-            "quantity": args["quantity"],
-            "price": args["price"]
-        }
-        items.append(item)
-        json.dump(items, "data.json")
-        return item, 201
-
-    def put(self, name):
-        parser = reqparse.RequestParser()
-        parser.add_argument("quantity")
-        parser.add_argument("price")
-        args = parser.parse_args()
-
-        for i in items:
-            if(name == i["name"]):
-                i["quantity"] = args["quantity"]
-                i["price"] = args["price"]
-                return i, 200
-
-        item = {
-            "name": name,
-            "quantity": args["quantity"],
-            "price": args["price"]
-        }
-        items.append(item)
-        json.dump(items, "data.json")
-        return item, 201
+    def put(self):
+        return "Not yet implemented", 500
 
     def delete(self, name):
-        global items
-        items = [item for item in items if item["name"] != name]
-        json.dump(items, "data.json")
-        return "{} has been deleted.".format(name), 200
+        response = inv.delete_one({'name': name})
+
+        if (response['deletedCount'] == 1):  # This will verify properly later on
+            return 200
+        return 200
 
 
-api.add_resource(Item, "/items/<string:name>")
+api.add_resource(Inventory, "/items/<string:name>")
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     app.run(debug=True)
