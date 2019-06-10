@@ -1,22 +1,11 @@
 from pymongo import MongoClient
 from pprint import pprint
-import json
+from generateProductList import generateProductList
+
 client = MongoClient("mongodb://localhost:27017")
 db = client.items
 
-data = [{
-    "name": "orange",
-    "quantity": 203,
-    "price": "$1.99"
-}, {
-    "name": "apple",
-    "quantity": 102,
-    "price": "$1.69"
-}, {
-    "name": "pear",
-    "quantity": 84,
-    "price": "$2.69"
-}]
+data = generateProductList(50)
 
 for item in data:
     result = db.inventory.insert_one(item)
