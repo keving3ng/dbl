@@ -1,0 +1,1 @@
+/home/kevin/code/dbl/api/inventory/generateProductList.py
