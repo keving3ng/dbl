@@ -3,9 +3,11 @@ import Card from "../elements/Card";
 
 class CardList extends React.Component {
   state = { data: this.props.data };
-  componentDidMount() {
-    console.log(this.state.date);
+
+  componentWillReceiveProps({ data }) {
+    this.setState({ data: data });
   }
+
   render() {
     return (
       <div className="ui four cards">
