@@ -21,6 +21,7 @@ class EditWindow extends React.Component {
       item: this.props.data,
       keyList: ["name", "price", "quantity"]
     });
+    this.props.update();
   }
 
   addNewData = (key, value) => {
@@ -37,9 +38,11 @@ class EditWindow extends React.Component {
 
   onSave = () => {
     API.put(`items/` + this.state.item["name"], this.state.item)
-      .then(r => console.log(r.status))
+      .then(response => {
+        console.log(response);
+      })
       .catch(e => console.log(e))
-      .then(window.location.reload());
+      .then(this.reset());
   };
 
   render() {
@@ -67,7 +70,6 @@ class EditWindow extends React.Component {
                 className="ui blue button"
                 onClick={() => {
                   this.onSave();
-                  this.reset();
                   close();
                 }}
               >

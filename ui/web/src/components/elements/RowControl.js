@@ -14,6 +14,7 @@ class RowControl extends React.Component {
             </button>
           }
           action="Edit item"
+          update={this.getData}
         />
 
         <button

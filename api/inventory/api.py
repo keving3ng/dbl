@@ -1,8 +1,9 @@
 from flask import Flask, request, jsonify
-from flask_restful import Resource, Api
+from flask_restful import Resource, Api, reqparse
 from bson.json_util import dumps
 from pymongo import MongoClient
 import json
+import ast
 
 client = MongoClient('mongodb://localhost:27017')
 
@@ -22,16 +23,22 @@ class Inventory(Resource):
         else:
             return "Item not found", 400
 
-    def put(self):
-        return "Not yet implemented", 500
+    def put(self, name):
+        data_dict = ast.literal_eval(request.get_data())
+        response = inv.update_one(
+            {'name': name}, {'$set': data_dict}, upsert=True)
+
+        if (response.acknowledged):
+            return 200
+        return 500
 
     def delete(self, name):
-        
         response = inv.delete_one({'name': name})
 
-        if (response['deletedCount'] == 1):  # This will verify properly later on
+        if (response.deleted_count == 1):
+            return 200
+        else:
             return 500
-        return 200
 
 
 api.add_resource(Inventory, "/items/<string:name>")

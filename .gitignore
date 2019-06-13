@@ -1,7 +1,7 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
+/ui/web/node_modules
 /.pnp
 .pnp.js
 
@@ -26,3 +26,9 @@ yarn-error.log*
 /XDG_CACHE_HOME/
 api/generateProductList.pyc
 MongoDockerReference.txt
+
+api/inventory/bin/
+api/inventory/data/
+api/inventory/include/
+api/inventory/lib/
+api/inventory/local/

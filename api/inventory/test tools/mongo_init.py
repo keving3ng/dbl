@@ -6,7 +6,7 @@ from generateProductList import generateProductList
 client = MongoClient("mongodb://localhost:27017")
 db = client.items
 
-data = generateProductList(256)
+data = generateProductList(6)
 
 for item in data:
     result = db.inventory.insert_one(item)

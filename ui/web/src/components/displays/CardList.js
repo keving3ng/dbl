@@ -1,19 +1,11 @@
 import React from "react";
 import Card from "../elements/Card";
-import API from "../apis";
 
 class CardList extends React.Component {
-  state = { data: [] };
-
+  state = { data: this.props.data };
   componentDidMount() {
-    this.getData();
+    console.log(this.state.date);
   }
-  getData = async () => {
-    const response = await API.get("items/all");
-
-    this.setState({ data: response.data });
-  };
-
   render() {
     return (
       <div className="ui four cards">

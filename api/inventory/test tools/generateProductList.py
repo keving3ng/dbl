@@ -11,7 +11,7 @@ def generateProductList(n):
 
     for i in range(n):
         while True:
-            newName = names[randrange(0, len(names) - 1, 1)]
+            newName = names[randrange(0, len(names) - 1, 1)].strip()
             if(usedNames.count(newName) == 0):
                 usedNames.append(newName)
                 break
