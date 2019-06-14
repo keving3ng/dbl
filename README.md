@@ -35,6 +35,14 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 `$ sudo docker exec -it mongodb bash`
 
+## Generating Test Data
+
+Since the database exists as a docker container, you will need to load data into the database. 
+
+`$ cd api/inventory/test\ tools`
+
+`$ python mongo_init.py`
+
 ## Known Issues
 ### CORS
 The web app may have issues accessing data from the API due to CORS. You may need to download a browser extension that allows you ignore these rules temporarily. 
