@@ -23,7 +23,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 `$ source ./bin/activate`
 
-`$ pip install flask-restful`
+`$ pip install flask-restful pymongo`
 
 `$ python ./api.py`
 
