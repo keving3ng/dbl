@@ -1,31 +1,48 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/faceibook/create-react-app).
 
-## Available Scripts
+## Starting the React Web App
 
-After clone the code to you local workspace, In the project directory, you can run:
+In the project directory:
 
-### `$cd ui`
+`$ cd ui/web`
 
-### `$ npm install`
+`$ npm install`
 
-### `$ npm start`
+`$ npm start`
 
 Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## Starting the Inventory API
 
-Also, in its current state, you will need to run the python api script. The UI retrieves data from the API.
+`$ cd api/inventory`
 
-### `$cd api`
+`$ pip install virtualenv`
 
-### `$ pip install virtualenv`
+`$ virtualenv .`
 
-### `$ virtualenv .`
+`$ source ./bin/activate`
 
-### `$ source ./bin/activate`
+`$ pip install flask-restful pymongo`
 
-### `$ pip install flask-restful`
+`$ python ./api.py`
 
-### `$ python ./api.py`
+## Starting the MongoDB Image
+
+`$ sudo docker pull mongo`
+
+`$ sudo docker run -d -p 27017-27019:27017-27019 --name mongodb mongo`
+
+`$ sudo docker exec -it mongodb bash`
+
+## Generating Test Data
+
+Since the database exists as a docker container, you will need to load data into the database. 
+
+`$ cd api/inventory/test\ tools`
+
+`$ python mongo_init.py`
+
+## Known Issues
+### CORS
+The web app may have issues accessing data from the API due to CORS. You may need to download a browser extension that allows you ignore these rules temporarily. 
