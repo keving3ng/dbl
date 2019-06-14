@@ -31,11 +31,11 @@ class App extends React.Component {
             button={<button className="ui blue button">Add item</button>}
             data={{}}
             action="Add new item"
-            update={this.getData}
+            getData={this.getData}
           />
         </div>
         <div>
-          <CardList data={this.state.data} />
+          <CardList data={this.state.data} getData={this.getData} />
         </div>
       </div>
     );

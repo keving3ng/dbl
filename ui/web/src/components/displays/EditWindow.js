@@ -21,7 +21,7 @@ class EditWindow extends React.Component {
       item: this.props.data,
       keyList: ["name", "price", "quantity"]
     });
-    this.props.update();
+    this.props.getData();
   }
 
   addNewData = (key, value) => {
