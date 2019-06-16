@@ -2,19 +2,34 @@ import React from "react";
 import Card from "../elements/Card";
 
 class CardList extends React.Component {
-  state = { data: this.props.data };
+  state = { data: this.props.data, term: this.props.term };
 
-  componentWillReceiveProps({ data }) {
-    this.setState({ data: data });
+  componentWillReceiveProps({ data, term }) {
+    this.setState({ data, term });
   }
 
   render() {
     return (
       <div className="ui four cards">
         {this.state.data.map(item => {
-          return (
-            <Card key={item["name"]} item={item} getData={this.props.getData} />
-          );
+          if (this.state.term === null) {
+            return (
+              <Card
+                key={item["name"]}
+                item={item}
+                getData={this.props.getData}
+              />
+            );
+          } else if (item["name"] === this.state.term) {
+            return (
+              <Card
+                key={item["name"]}
+                item={item}
+                getData={this.props.getData}
+              />
+            );
+          }
+          return null;
         })}
       </div>
     );
