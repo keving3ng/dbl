@@ -15,13 +15,14 @@ class SearchBar extends React.Component {
 
   render() {
     return (
-      <div className="ui search bar">
+      <div className="ui search bar" align="right">
         <form onSubmit={this.onFormSubmit} className="ui form">
           <div className="six wide field">
             <input
               type="text"
               value={this.state.term}
               onChange={this.onInputChange}
+              style={{ align: "right" }}
             />
           </div>
         </form>

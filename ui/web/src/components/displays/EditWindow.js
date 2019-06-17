@@ -55,11 +55,37 @@ class EditWindow extends React.Component {
             </h3>
 
             <div className="ui segment">
-              <InputRow
-                keyList={this.state.keyList}
-                addNewData={this.addNewData}
-                item={this.state.item}
-              />
+              <h4 className="ui dividing header">Required fields</h4>
+              <div className="ui form">
+                <div className="fields">
+                  <div className="eight wide field">
+                    <label>Name</label>
+                    <input type="text" />
+                  </div>
+                  <div className="three wide field">
+                    <label>Price</label>
+                    <input type="text" />
+                  </div>
+                  <div className="three wide field">
+                    <label>Quantity</label>
+                    <input type="text" />
+                  </div>
+                  <div className="two wide field">
+                    <button
+                      className="ui compact button"
+                      style={{ marginTop: "20px", marginLeft: "10px" }}
+                    >
+                      Submit
+                    </button>
+                  </div>
+                </div>
+                <h4 className="ui dividing header">Add additional fields</h4>
+                <InputRow
+                  keyList={this.state.keyList}
+                  addNewData={this.addNewData}
+                  item={this.state.item}
+                />
+              </div>
             </div>
             <div className="ui segment">
               <ScrollBox data={this.state.item} deleteRow={this.deleteRow} />

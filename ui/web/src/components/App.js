@@ -12,7 +12,7 @@ class App extends React.Component {
   }
 
   getData = async () => {
-    const response = await API.get("items/all").catch(e => console.log(e));
+    const response = await API.get("items/all");
 
     this.setState({ data: response.data });
   };
