@@ -20,11 +20,11 @@ class EditWindow extends React.Component {
   }
 
   reset() {
+    this.props.getData();
     this.setState({
       item: this.props.data,
       keyList: ["name", "price", "quantity"]
     });
-    this.props.getData();
   }
 
   addNewData = (key, value) => {
@@ -45,6 +45,7 @@ class EditWindow extends React.Component {
         console.log(response);
       })
       .catch(e => console.log(e))
+      .then(this.props.getData)
       .then(this.reset());
   };
 
