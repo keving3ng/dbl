@@ -1,6 +1,7 @@
 import React from "react";
 import EditWindow from "../displays/EditWindow";
 import API from "../apis";
+import EditQuantity from "./EditQuantity";
 
 class RowControl extends React.Component {
   state = { item: this.props.item };
@@ -22,6 +23,8 @@ class RowControl extends React.Component {
           action="Edit item"
           getData={this.props.getData}
         />
+
+        <EditQuantity item={this.state.item} getData={this.props.getData} />
 
         <button
           className="ui red icon button"
