@@ -6,6 +6,10 @@ class Card extends React.Component {
     item: this.props.item
   };
 
+  componentWillReceiveProps({ item }) {
+    this.setState({ item });
+  }
+
   getName = () => {
     return <div>{this.capIfString(this.props.item["name"])}</div>;
   };

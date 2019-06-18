@@ -3,11 +3,17 @@ import EditWindow from "../displays/EditWindow";
 import API from "../apis";
 
 class RowControl extends React.Component {
+  state = { item: this.props.item };
+
+  componentWillReceiveProps({ item }) {
+    this.setState({ item });
+  }
+
   render() {
     return (
       <div>
         <EditWindow
-          data={this.props.item}
+          data={this.state.item}
           button={
             <button className="ui teal icon button">
               <i className="edit icon" />
@@ -19,7 +25,11 @@ class RowControl extends React.Component {
 
         <button
           className="ui red icon button"
-          onClick={() => API.delete(`/items/${this.props.item["name"]}`)}
+          onClick={() =>
+            API.delete(`/items/${this.state.item["name"]}`).then(
+              this.props.getData
+            )
+          }
         >
           <i className="trash alternate outline icon" />
         </button>
