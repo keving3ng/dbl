@@ -19,11 +19,7 @@ class RowControl extends React.Component {
 
         <button
           className="ui red icon button"
-          onClick={() =>
-            API.delete(`/items/${this.props.item["name"]}`).then(
-              window.location.reload()
-            )
-          }
+          onClick={() => API.delete(`/items/${this.props.item["name"]}`)}
         >
           <i className="trash alternate outline icon" />
         </button>

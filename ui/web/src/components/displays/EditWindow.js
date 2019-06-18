@@ -7,7 +7,10 @@ import API from "../apis";
 class EditWindow extends React.Component {
   state = {
     item: this.props.data,
-    keyList: ["name", "price", "quantity"]
+    keyList: [],
+    nameField: this.props.data["name"],
+    quantityField: this.props.data["quantity"],
+    priceField: this.props.data["price"]
   };
 
   componentWillMount() {
@@ -45,6 +48,30 @@ class EditWindow extends React.Component {
       .then(this.reset());
   };
 
+  submitDefaults = event => {
+    event.preventDefault();
+    const defaults = {};
+    defaults["name"] = this.state.nameField;
+    defaults["quantity"] = this.state.quantityField;
+    defaults["price"] = this.state.priceField;
+
+    this.setState({
+      item: Object.assign(this.state.item, defaults)
+    });
+  };
+
+  onNameChange = e => {
+    this.setState({ nameField: e.target.value });
+  };
+
+  onQuantityChange = e => {
+    this.setState({ quantityField: e.target.value });
+  };
+
+  onPriceChange = e => {
+    this.setState({ priceField: e.target.value });
+  };
+
   render() {
     return (
       <Popup trigger={this.props.button} modal>
@@ -56,24 +83,38 @@ class EditWindow extends React.Component {
 
             <div className="ui segment">
               <h4 className="ui dividing header">Required fields</h4>
-              <div className="ui form">
+              <div className="ui form" onSubmit={() => this.submitDefaults}>
                 <div className="fields">
                   <div className="eight wide field">
                     <label>Name</label>
-                    <input type="text" />
+                    <input
+                      type="text"
+                      value={this.state.nameField}
+                      onChange={this.onNameChange}
+                    />
                   </div>
                   <div className="three wide field">
                     <label>Price</label>
-                    <input type="text" />
+                    <input
+                      type="text"
+                      value={this.state.priceField}
+                      onChange={this.onPriceChange}
+                    />
                   </div>
                   <div className="three wide field">
                     <label>Quantity</label>
-                    <input type="text" />
+                    <input
+                      type="text"
+                      value={this.state.quantityField}
+                      onChange={this.onQuantityChange}
+                    />
                   </div>
                   <div className="two wide field">
                     <button
                       className="ui compact button"
-                      style={{ marginTop: "20px", marginLeft: "10px" }}
+                      type="submit"
+                      onClick={this.submitDefaults}
+                      style={{ marginTop: "25px", marginLeft: "5px" }}
                     >
                       Submit
                     </button>
