@@ -3,8 +3,6 @@ DBL is a learning project where I plan to explore and implement variety of popul
 
 ![Image of DBL Conceptual Architecture](https://i.ibb.co/FXnQXdD/dbl-Conceptual-Architecture-June-2019.png)
 
-This project was bootstrapped with [Create React App](https://github.com/faceibook/create-react-app).
-
 ## Starting the React Web App
 
 In the project directory:
