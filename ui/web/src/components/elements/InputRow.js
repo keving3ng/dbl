@@ -41,7 +41,7 @@ class InputRow extends React.Component {
     return this.state.keyList.map(key => {
       if (!Object.keys(this.state.item).includes(key)) {
         return (
-          <option key={key} value={key}>
+          <option id={key} key={key} value={key}>
             {this.capIfString(key)}
           </option>
         );
@@ -63,6 +63,7 @@ class InputRow extends React.Component {
                 <div className="field">
                   <select
                     value={this.state.selectedKey}
+                    id="custom keys dropdown"
                     onChange={this.onDropdownChange}
                     className="ui selection dropdown"
                   >
@@ -74,6 +75,7 @@ class InputRow extends React.Component {
                 <div className="field">
                   <input
                     type="text"
+                    id="custom key value textbox"
                     value={this.state.value}
                     onChange={this.onInputChange}
                     placeholder="Enter a value"
@@ -81,6 +83,7 @@ class InputRow extends React.Component {
                 </div>
                 <button
                   className="ui button"
+                  id="submit custom data button"
                   type="submit"
                   onSubmit={this.onFormSubmit}
                 >

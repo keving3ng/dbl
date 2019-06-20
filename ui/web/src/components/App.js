@@ -35,7 +35,11 @@ class App extends React.Component {
           <div className="ui grid">
             <div className="two wide column">
               <EditWindow
-                button={<button className="ui blue button">Add item</button>}
+                button={
+                  <button id="add new item button" className="ui blue button">
+                    Add item
+                  </button>
+                }
                 data={{}}
                 action="Add new item"
                 getData={this.getData}

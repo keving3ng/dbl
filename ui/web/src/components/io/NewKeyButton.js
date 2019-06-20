@@ -15,7 +15,11 @@ const AddNewButton = ({ addKey }) => {
   };
 
   return (
-    <button className="ui icon button" onClick={() => addKey(PopUp())}>
+    <button
+      className="ui icon button"
+      id="add new key button"
+      onClick={() => addKey(PopUp())}
+    >
       <i className="plus icon" />
     </button>
   );

@@ -90,6 +90,7 @@ class EditWindow extends React.Component {
                     <label>Name</label>
                     <input
                       type="text"
+                      id="edit name textbox"
                       value={this.state.nameField}
                       onChange={this.onNameChange}
                     />
@@ -98,6 +99,7 @@ class EditWindow extends React.Component {
                     <label>Price</label>
                     <input
                       type="text"
+                      id="edit price textbox"
                       value={this.state.priceField}
                       onChange={this.onPriceChange}
                     />
@@ -106,6 +108,7 @@ class EditWindow extends React.Component {
                     <label>Quantity</label>
                     <input
                       type="text"
+                      id="edit quantity textbox"
                       value={this.state.quantityField}
                       onChange={this.onQuantityChange}
                     />
@@ -113,6 +116,7 @@ class EditWindow extends React.Component {
                   <div className="two wide field">
                     <button
                       className="ui compact button"
+                      id="submit defaults button"
                       type="submit"
                       onClick={this.submitDefaults}
                       style={{ marginTop: "25px", marginLeft: "5px" }}
@@ -135,6 +139,7 @@ class EditWindow extends React.Component {
 
             <div className="ui right floated segment">
               <button
+                id="save button"
                 className="ui blue button"
                 onClick={() => {
                   this.onSave();
@@ -146,6 +151,7 @@ class EditWindow extends React.Component {
 
               <button
                 className="ui red button"
+                id="cancel button"
                 onClick={() => {
                   this.reset();
                   close();
