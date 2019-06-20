@@ -22,9 +22,9 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 `$ pip install virtualenv`
 
-`$ virtualenv .`
+`$ virtualenv ./env`
 
-`$ source ./bin/activate`
+`$ source .env//bin/activate`
 
 `$ pip install flask-restful pymongo`
 
