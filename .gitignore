@@ -8,6 +8,7 @@
 # testing
 /coverage
 .components.data.TestData.txt
+/results
 
 # production
 /build
