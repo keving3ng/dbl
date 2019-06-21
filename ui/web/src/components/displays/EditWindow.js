@@ -77,7 +77,7 @@ class EditWindow extends React.Component {
     return (
       <Popup trigger={this.props.button} modal>
         {close => (
-          <div className="ui segment">
+          <div className="ui segments">
             <div className="modal" style={{ padding: "15px" }}>
               <h3 className="ui huge header" style={{ alignContent: "center" }}>
                 {this.props.action}
@@ -138,7 +138,7 @@ class EditWindow extends React.Component {
                 <ScrollBox data={this.state.item} deleteRow={this.deleteRow} />
               </div>
 
-              <div className="ui right floated segment">
+              <div className="ui right aligned segment">
                 <button
                   id="save button"
                   className="ui blue button"
