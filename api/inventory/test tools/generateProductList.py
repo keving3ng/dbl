@@ -23,9 +23,6 @@ def generateProductList(n):
 
         productList.append(newProduct)
 
-    data = open("./data/productlist.json", "w")
-    jsonData = dumps(productList)
-    data.write(jsonData)
     return productList
 
 
