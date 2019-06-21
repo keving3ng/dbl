@@ -1,7 +1,5 @@
 *** Settings ***
 Library         SeleniumLibrary  timeout=10  implicit_wait=0
-Library         ReactLibrary
-Library         Screenshot
 Suite Setup     Open browser  localhost:3000  chrome
 Suite Teardown  Close browser
 
