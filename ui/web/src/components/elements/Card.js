@@ -24,6 +24,19 @@ class Card extends React.Component {
   renderData = () => {
     if (this.state.item !== undefined) {
       return Object.keys(this.state.item).map(key => {
+        if (key === "rating") {
+          console.log(this.state.item.rating);
+          return (
+            <tr key={key + this.state.item[key]}>
+              <td data-label="Key">{this.capIfString(key)}</td>
+              <td data-label="Value">
+                <div style={{ whiteSpace: "nowrap" }}>
+                  {this.state.item.rating} <i className="star icon" />
+                </div>
+              </td>
+            </tr>
+          );
+        }
         return (
           <tr key={key + this.state.item[key]}>
             <td data-label="Key">{this.capIfString(key)}</td>
