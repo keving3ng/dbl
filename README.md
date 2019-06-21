@@ -22,9 +22,3 @@ Navigate from the root folder:
 `$ cd tools/`
 
 `$ python mongo_init.py`
-
-## Known Issues
-
-### CORS
-
-You may run into a CORS issue. You will need to use an extension that allows Cross-Origin Resource Sharing for the time being.
