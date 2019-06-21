@@ -3,10 +3,13 @@ from flask_restful import Resource, Api, reqparse
 from bson.json_util import dumps
 from pymongo import MongoClient
 from flask_cors import CORS
+import os
 import json
 import ast
 
-client = MongoClient("mongodb://mongo:27017")
+host = os.environ.get('DATABASE_HOST')
+
+client = MongoClient("mongodb://{0}:27017".format(host))
 
 db = client.items
 inv = db.inventory
