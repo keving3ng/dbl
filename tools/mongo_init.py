@@ -39,6 +39,7 @@ if __name__ == "__main__":
     parser.add_argument("-n", "-num", type=int,
                         help="Number of products to generate and insert into database. Default is {0}.".format(DEFAULT_NUM_ITEMS), default=DEFAULT_NUM_ITEMS)
 
+    n = parser.parse_args().n
     data = generateProductList(parser.parse_args().n)
 
     for item in data:
