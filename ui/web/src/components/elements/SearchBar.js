@@ -5,27 +5,19 @@ class SearchBar extends React.Component {
 
   onInputChange = event => {
     this.setState({ term: event.target.value });
-  };
-
-  onFormSubmit = event => {
-    event.preventDefault();
-    console.log(this.state.term);
-    this.props.onFormSubmit(this.state.term);
+    this.props.searchData(event.target.value);
   };
 
   render() {
     return (
-      <div className="ui search bar" align="right">
-        <form onSubmit={this.onFormSubmit} className="ui form">
-          <div className="six wide field">
-            <input
-              type="text"
-              value={this.state.term}
-              onChange={this.onInputChange}
-              style={{ align: "right" }}
-            />
-          </div>
-        </form>
+      <div className="ui fluid icon input">
+        <input
+          type="text"
+          value={this.state.term}
+          onChange={e => this.onInputChange(e)}
+          placeholder="Search..."
+        />
+        <i className="search icon" />
       </div>
     );
   }

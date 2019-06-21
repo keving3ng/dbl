@@ -5,8 +5,14 @@ class CardList extends React.Component {
   state = { data: this.props.data, term: this.props.term };
 
   componentWillReceiveProps({ data, term }) {
-    this.setState({ data, term });
+    if (term === "") {
+      this.setState({ data, term: null });
+    } else {
+      this.setState({ data, term });
+    }
   }
+
+  clear;
 
   render() {
     return (
@@ -20,7 +26,12 @@ class CardList extends React.Component {
                 getData={this.props.getData}
               />
             );
-          } else if (item["name"] === this.state.term) {
+          } else if (
+            item["name"]
+              .toUpperCase()
+              .toLowerCase()
+              .indexOf(this.state.term.toUpperCase().toLowerCase()) > -1
+          ) {
             return (
               <Card
                 key={item["name"]}

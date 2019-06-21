@@ -33,7 +33,7 @@ class App extends React.Component {
         </h1>
         <div className="ui segment" style={{ paddingTop: "25px" }}>
           <div className="ui grid">
-            <div className="two wide column">
+            <div className="eleven wide column">
               <EditWindow
                 button={
                   <button id="add new item button" className="ui blue button">
@@ -45,16 +45,8 @@ class App extends React.Component {
                 getData={this.getData}
               />
             </div>
-            <div className="twelve wide column">
-              <SearchBar onFormSubmit={this.searchData} />
-            </div>
-            <div className="two wide column">
-              <button
-                className="ui grey button"
-                onClick={() => this.setState({ term: null })}
-              >
-                Clear
-              </button>
+            <div className="five wide column">
+              <SearchBar searchData={this.searchData} />
             </div>
           </div>
         </div>
