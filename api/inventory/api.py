@@ -5,7 +5,7 @@ from pymongo import MongoClient
 import json
 import ast
 
-client = MongoClient('mongodb://localhost:27017')
+client = MongoClient("mongodb://mongo:27017")
 
 db = client.items
 inv = db.inventory
