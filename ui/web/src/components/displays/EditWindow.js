@@ -77,89 +77,91 @@ class EditWindow extends React.Component {
     return (
       <Popup trigger={this.props.button} modal>
         {close => (
-          <div className="modal" style={{ padding: "15px" }}>
-            <h3 className="ui huge header" style={{ alignContent: "center" }}>
-              {this.props.action}
-            </h3>
+          <div className="ui segment">
+            <div className="modal" style={{ padding: "15px" }}>
+              <h3 className="ui huge header" style={{ alignContent: "center" }}>
+                {this.props.action}
+              </h3>
 
-            <div className="ui segment">
-              <h4 className="ui dividing header">Required fields</h4>
-              <div className="ui form" onSubmit={() => this.submitDefaults}>
-                <div className="fields">
-                  <div className="eight wide field">
-                    <label>Name</label>
-                    <input
-                      type="text"
-                      id="edit name textbox"
-                      value={this.state.nameField}
-                      onChange={this.onNameChange}
-                    />
+              <div className="ui segment">
+                <h4 className="ui dividing header">Required fields</h4>
+                <div className="ui form" onSubmit={() => this.submitDefaults}>
+                  <div className="fields">
+                    <div className="eight wide field">
+                      <label>Name</label>
+                      <input
+                        type="text"
+                        id="edit name textbox"
+                        value={this.state.nameField}
+                        onChange={this.onNameChange}
+                      />
+                    </div>
+                    <div className="three wide field">
+                      <label>Price</label>
+                      <input
+                        type="text"
+                        id="edit price textbox"
+                        value={this.state.priceField}
+                        onChange={this.onPriceChange}
+                      />
+                    </div>
+                    <div className="three wide field">
+                      <label>Quantity</label>
+                      <input
+                        type="text"
+                        id="edit quantity textbox"
+                        value={this.state.quantityField}
+                        onChange={this.onQuantityChange}
+                      />
+                    </div>
+                    <div className="two wide field">
+                      <button
+                        className="ui compact button"
+                        id="submit defaults button"
+                        type="submit"
+                        onClick={this.submitDefaults}
+                        style={{ marginTop: "25px", marginLeft: "5px" }}
+                      >
+                        Submit
+                      </button>
+                    </div>
                   </div>
-                  <div className="three wide field">
-                    <label>Price</label>
-                    <input
-                      type="text"
-                      id="edit price textbox"
-                      value={this.state.priceField}
-                      onChange={this.onPriceChange}
-                    />
-                  </div>
-                  <div className="three wide field">
-                    <label>Quantity</label>
-                    <input
-                      type="text"
-                      id="edit quantity textbox"
-                      value={this.state.quantityField}
-                      onChange={this.onQuantityChange}
-                    />
-                  </div>
-                  <div className="two wide field">
-                    <button
-                      className="ui compact button"
-                      id="submit defaults button"
-                      type="submit"
-                      onClick={this.submitDefaults}
-                      style={{ marginTop: "25px", marginLeft: "5px" }}
-                    >
-                      Submit
-                    </button>
-                  </div>
+                  <h4 className="ui dividing header">Add additional fields</h4>
+                  <InputRow
+                    keyList={this.state.keyList}
+                    addNewData={this.addNewData}
+                    item={this.state.item}
+                  />
                 </div>
-                <h4 className="ui dividing header">Add additional fields</h4>
-                <InputRow
-                  keyList={this.state.keyList}
-                  addNewData={this.addNewData}
-                  item={this.state.item}
-                />
               </div>
-            </div>
-            <div className="ui segment">
-              <ScrollBox data={this.state.item} deleteRow={this.deleteRow} />
-            </div>
+              <div className="ui segment">
+                <ScrollBox data={this.state.item} deleteRow={this.deleteRow} />
+              </div>
 
-            <div className="ui right floated segment">
-              <button
-                id="save button"
-                className="ui blue button"
-                onClick={() => {
-                  this.onSave();
-                  close();
-                }}
-              >
-                Save
-              </button>
+              <div className="ui right floated segment">
+                <button
+                  id="save button"
+                  className="ui blue button"
+                  onClick={() => {
+                    this.onSave();
+                    close();
+                  }}
+                >
+                  Save
+                </button>
 
-              <button
-                className="ui red button"
-                id="cancel button"
-                onClick={() => {
-                  this.reset();
-                  close();
-                }}
-                style={{ verticalAlign: "true" }}
-              >
-                Cancel
-              </button>
+                <button
+                  className="ui red button"
+                  id="cancel button"
+                  onClick={() => {
+                    this.reset();
+                    close();
+                  }}
+                  style={{ verticalAlign: "true" }}
+                >
+                  Cancel
+                </button>
+              </div>
             </div>
           </div>
         )}
