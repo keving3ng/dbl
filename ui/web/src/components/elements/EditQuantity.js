@@ -52,7 +52,11 @@ class EditQuantity extends React.Component {
   };
 
   onInputChange = event => {
-    this.setState({ value: parseInt(event.target.value) });
+    if (event.target.value.length === 0) {
+      this.setState({ value: "" });
+    } else {
+      this.setState({ value: parseInt(event.target.value) });
+    }
   };
 
   renderUndoButton = () => {
@@ -64,7 +68,9 @@ class EditQuantity extends React.Component {
             this.undo();
           }}
         >
-          <i className="undo icon" />
+          <div>
+            <i className="undo icon" /> Undo
+          </div>
         </button>
       );
     } else {
@@ -75,7 +81,9 @@ class EditQuantity extends React.Component {
             this.undo();
           }}
         >
-          <i className="undo icon" />
+          <div>
+            <i className="undo icon" /> Undo
+          </div>
         </button>
       );
     }
@@ -141,7 +149,9 @@ class EditQuantity extends React.Component {
                         close();
                       }}
                     >
-                      <i className="check icon" />
+                      <div>
+                        <i className="check icon" /> Finish
+                      </div>
                     </button>
                   </div>
                 </div>

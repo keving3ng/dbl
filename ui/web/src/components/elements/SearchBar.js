@@ -12,6 +12,7 @@ class SearchBar extends React.Component {
     return (
       <div className="ui fluid icon input">
         <input
+          id="product search bar"
           type="text"
           value={this.state.term}
           onChange={e => this.onInputChange(e)}

@@ -25,7 +25,6 @@ class Card extends React.Component {
     if (this.state.item !== undefined) {
       return Object.keys(this.state.item).map(key => {
         if (key === "rating") {
-          console.log(this.state.item.rating);
           return (
             <tr key={key + this.state.item[key]}>
               <td data-label="Key">{this.capIfString(key)}</td>
@@ -49,7 +48,7 @@ class Card extends React.Component {
 
   render() {
     return (
-      <div className="card">
+      <div className="card" id={this.state.item.name}>
         <div className="content">
           <div className="header">{this.getName()}</div>
           <div className="description">
