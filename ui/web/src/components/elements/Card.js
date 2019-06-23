@@ -24,7 +24,10 @@ class Card extends React.Component {
           return (
             <tr key={key + this.state.item[key]}>
               <td data-label="Key">{this.capIfString(key)}</td>
-              <td data-label="Value">
+              <td
+                data-label="Value"
+                id={this.state.item.name + " rating value"}
+              >
                 <div style={{ whiteSpace: "nowrap" }}>
                   {this.state.item.rating} <i className="star icon" />
                 </div>
@@ -35,7 +38,12 @@ class Card extends React.Component {
         return (
           <tr key={key + this.state.item[key]}>
             <td data-label="Key">{this.capIfString(key)}</td>
-            <td data-label="Value">{this.capIfString(this.state.item[key])}</td>
+            <td
+              data-label="Value"
+              id={this.state.item.name + " " + key + " value"}
+            >
+              {this.capIfString(this.state.item[key])}
+            </td>
           </tr>
         );
       });

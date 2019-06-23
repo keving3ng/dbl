@@ -20,6 +20,7 @@ class EditQuantity extends React.Component {
   incr = n => {
     return (
       <button
+        id={"increase by " + n + " button"}
         className="ui compact button"
         style={{ margin: "4px" }}
         onClick={() =>
@@ -37,6 +38,7 @@ class EditQuantity extends React.Component {
   decr = n => {
     return (
       <button
+        id={"decrease by " + n + " button"}
         className="compact ui button"
         style={{ margin: "4px" }}
         onClick={() =>
@@ -107,7 +109,7 @@ class EditQuantity extends React.Component {
     return (
       <Popup
         trigger={
-          <button className="ui purple icon button">
+          <button id="edit quantity button" className="ui purple icon button">
             <i className="hashtag icon" />
           </button>
         }
@@ -129,6 +131,7 @@ class EditQuantity extends React.Component {
                       {this.decr(1)}
                       <div className="ui input" style={{ margin: "5px" }}>
                         <input
+                          id="quantity value textbox"
                           value={this.state.value}
                           onChange={e => this.onInputChange(e)}
                           size="5"
@@ -143,6 +146,7 @@ class EditQuantity extends React.Component {
                   <div className="row" style={{ paddingTop: "20px" }}>
                     {this.renderUndoButton()}
                     <button
+                      id="finish edit quantity button"
                       className="ui icon button"
                       onClick={() => {
                         this.onSave();

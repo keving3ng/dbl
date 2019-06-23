@@ -1,8 +1,6 @@
 from pymongo import MongoClient
-from pprint import pprint
 from random import randrange, choice, getrandbits
 from json import dumps
-from argparse import ArgumentParser
 
 client = MongoClient("mongodb://localhost:27017")
 db = client.items
@@ -71,6 +69,13 @@ def generateProductList(n):
                 randrange(0, 100, 1), randrange(0, 10, 1))
 
         productList.append(newProduct)
+
+    namelist = open("../../tests/ui/web/nameslist.txt", "w")
+
+    for name in usedNames:
+        namelist.write(name + "\n")
+
+    namelist.close()
 
     return productList
 
