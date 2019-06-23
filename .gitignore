@@ -8,7 +8,6 @@
 # testing
 /coverage
 .components.data.TestData.txt
-/tests/ui/web/results/
 /data
 
 # production
