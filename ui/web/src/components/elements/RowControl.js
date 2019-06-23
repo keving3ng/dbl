@@ -28,6 +28,7 @@ class RowControl extends React.Component {
 
         <button
           className="ui red icon button"
+          id={"delete " + this.state.item.name + " card button"}
           onClick={() =>
             API.delete(`/items/${this.state.item["name"]}`).then(
               this.props.getData

@@ -10,10 +10,6 @@ class Card extends React.Component {
     this.setState({ item });
   }
 
-  getName = () => {
-    return <div>{this.capIfString(this.props.item["name"])}</div>;
-  };
-
   capIfString = input => {
     if (typeof input === "string") {
       return input.charAt(0).toUpperCase() + input.slice(1);
@@ -50,7 +46,9 @@ class Card extends React.Component {
     return (
       <div className="card" id={this.state.item.name}>
         <div className="content">
-          <div className="header">{this.getName()}</div>
+          <div id="product card name" className="header">
+            {this.capIfString(this.state.item.name)}
+          </div>
           <div className="description">
             <table className="ui celled table">
               <thead>

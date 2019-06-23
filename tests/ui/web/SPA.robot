@@ -1,5 +1,6 @@
 *** Settings ***
 Library         SeleniumLibrary  timeout=10  implicit_wait=0
+Library         String
 Suite Setup     Open browser  localhost:3000  chrome
 Suite Teardown  Close browser
 
@@ -18,8 +19,15 @@ Scenario: Test Adding New Item
   Click Element           id: country of origin
   Input Text              id: custom key value textbox     Canada
   Click Button            id: submit custom data button
-  Execute JavaScript      window.scrollTo(0, document.body.scrollHeight)
-  Click Button            id: save button
-
+  Click Save Button
 
 Scenario: Searching for an Item
+  ${someproduct}=     Get Text      id: product card name
+  Input Text                        id: product search bar    ${someproduct}
+  ${someproduct}=     Convert To Lowercase     ${someproduct}
+  Element Should Be Visible         id: ${someproduct}
+
+
+*** Keywords ***
+Click Save Button
+  Click Button    id: save button
