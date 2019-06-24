@@ -1,6 +1,7 @@
 from pymongo import MongoClient
 from random import randrange, choice, getrandbits
 from json import dumps
+from argparse import ArgumentParser
 
 client = MongoClient("mongodb://localhost:27017")
 db = client.items
