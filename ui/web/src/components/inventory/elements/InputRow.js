@@ -1,5 +1,5 @@
 import React from "react";
-import NewKeyButton from "../io/NewKeyButton";
+import NewKeyButton from "./NewKeyButton";
 
 class InputRow extends React.Component {
   state = {

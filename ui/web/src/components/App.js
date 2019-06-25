@@ -1,7 +1,7 @@
 import React from "react";
-import Inventory from "./Inventory";
-import Orders from "./Orders";
-import Customers from "./Customers";
+import Inventory from "./inventory/Inventory";
+import Orders from "./orders/Orders";
+import Customers from "./customers/Customers";
 
 class App extends React.Component {
   state = {
@@ -11,20 +11,28 @@ class App extends React.Component {
       { name: "Orders", component: <Orders /> },
       { name: "Customers", component: <Customers /> }
     ],
-    selected: "Inventory"
+    selected: "Orders"
   };
 
   renderComponents = () => {
     return this.state.components.map(i => {
       if (i.name === this.state.selected) {
         return (
-          <div className="ui bottom active attached tab segment">
+          <div
+            className="ui bottom active attached tab segment"
+            key={i.name + " component"}
+          >
             {i.component}
           </div>
         );
       } else {
         return (
-          <div className="ui bottom attached tab segment">{i.component}</div>
+          <div
+            className="ui bottom attached tab segment"
+            key={i.name + " component"}
+          >
+            {i.component}
+          </div>
         );
       }
     });
@@ -37,6 +45,7 @@ class App extends React.Component {
           <div
             className="active item"
             onClick={() => this.setState({ selected: name })}
+            key={name + " tab"}
           >
             {name}
           </div>
@@ -46,6 +55,7 @@ class App extends React.Component {
           <div
             className="item"
             onClick={() => this.setState({ selected: name })}
+            key={name + " tab"}
           >
             {name}
           </div>

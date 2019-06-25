@@ -1,8 +1,8 @@
 import React from "react";
-import CardList from "./inventory/displays/CardList";
-import EditWindow from "./inventory/displays/EditWindow";
-import API from "./inventory/apis";
-import SearchBar from "./inventory/elements/SearchBar";
+import CardList from "./displays/CardList";
+import EditWindow from "./displays/EditWindow";
+import API from "./apis";
+import SearchBar from "../elements/SearchBar";
 
 class Inventory extends React.Component {
   state = { data: [], term: null };
