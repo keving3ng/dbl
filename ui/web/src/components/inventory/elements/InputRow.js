@@ -6,7 +6,7 @@ class InputRow extends React.Component {
     keyList: this.props.keyList,
     item: this.props.item,
     value: "",
-    selectedKey: "key"
+    selectedKey: ""
   };
 
   capIfString = input => {
@@ -33,18 +33,27 @@ class InputRow extends React.Component {
 
   addKey = key => {
     this.setState(prevState => ({
-      keyList: [...prevState.keyList, key.toLowerCase()]
+      keyList: [...prevState.keyList, key.toLowerCase()],
+      selectedKey: key
     }));
   };
 
   renderKeyList = () => {
     return this.state.keyList.map(key => {
       if (!Object.keys(this.state.item).includes(key)) {
-        return (
-          <option id={key} key={key} value={key}>
-            {this.capIfString(key)}
-          </option>
-        );
+        if (key === this.state.selectedKey) {
+          return (
+            <option selected={true} id={key} key={key} value={key}>
+              {this.capIfString(key)}
+            </option>
+          );
+        } else {
+          return (
+            <option id={key} key={key} value={key}>
+              {this.capIfString(key)}
+            </option>
+          );
+        }
       }
       return null;
     });
@@ -67,7 +76,7 @@ class InputRow extends React.Component {
                     onChange={this.onDropdownChange}
                     className="ui selection dropdown"
                   >
-                    <option value="">Select or enter a new key</option>
+                    <option value="">{this.state.selectedKey}</option>
                     {this.renderKeyList()}
                   </select>
                 </div>
