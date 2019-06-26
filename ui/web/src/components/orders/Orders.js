@@ -3,6 +3,10 @@ import SearchBar from "../elements/SearchBar";
 import OrderTable from "./displays/OrderTable";
 
 class Orders extends React.Component {
+  state = { term: "" };
+  search = term => {
+    this.setState({ term });
+  };
   render() {
     return (
       <div className="ui container">
@@ -19,7 +23,7 @@ class Orders extends React.Component {
               <button className="ui blue button">Add New Order</button>
             </div>
             <div className="five wide column">
-              <SearchBar />
+              <SearchBar searchData={this.search} />
             </div>
           </div>
         </div>
