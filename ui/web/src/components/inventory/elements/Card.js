@@ -10,11 +10,16 @@ class Card extends React.Component {
     this.setState({ item });
   }
 
-  capIfString = input => {
-    if (typeof input === "string") {
-      return input.charAt(0).toUpperCase() + input.slice(1);
+  capIfString = str => {
+    if (typeof str === "string") {
+      var splitStr = str.toLowerCase().split(" ");
+      for (var i = 0; i < splitStr.length; i++) {
+        splitStr[i] =
+          splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);
+      }
+      return splitStr.join(" ");
     }
-    return input;
+    return str;
   };
 
   renderData = () => {
