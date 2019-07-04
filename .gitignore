@@ -34,3 +34,5 @@ api/inventory/include/
 api/inventory/lib/
 api/inventory/local/
 /.metadata/
+
+/.gradle/
