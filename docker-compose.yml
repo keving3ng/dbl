@@ -1,4 +1,4 @@
-version: "3.7"
+version: "3"
 services:
   web:
     build:
@@ -39,3 +39,13 @@ services:
       default:
         aliases:
           - mongo-db-svr
+  mysql:
+    image: mysql:latest
+    restart: always
+    environment:
+      - MYSQL_DATABASE=orderdb
+      - MYSQL_ROOT_PASSWORD=sqlpassword
+    ports:
+      - "3306:3306"
+    volumes:
+      - "./data/mysql:/var/lib/mysql"
