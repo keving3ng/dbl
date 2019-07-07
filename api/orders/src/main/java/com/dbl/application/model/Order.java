@@ -3,16 +3,14 @@ package com.dbl.application.model;
 import java.util.Date;
 import java.text.SimpleDateFormat;
 
-import com.dbl.application.model.product.Product;
-
 public class Order {
   private String dateAdded;
   private int orderId;
   private int customerId;
   private String status;
-  private Product[] details;
+  private String details;
 
-  public Order(int orderId, int customerId, Product[] details) {
+  public Order(int orderId, int customerId, String details) {
     SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
     Date date = new Date(System.currentTimeMillis());
     this.dateAdded = formatter.format(date);
@@ -41,6 +39,10 @@ public class Order {
     return status;
   }
 
+  public String getDetails() {
+    return details;
+  }
+
   public void updateStatus(String status, String employee) {
     SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
     Date date = new Date(System.currentTimeMillis());
@@ -53,19 +55,10 @@ public class Order {
     this.status = newStatus.toString();
   }
 
-  private String printDetails(){
-    StringBuilder detailString = new StringBuilder();
-
-    for (Product p : details){
-      detailString.append(p.toString());
-    }
-
-    return detailString.toString();
-  }
   @Override
   public String toString() {
     return "Date Added: " + getDateAdded() + " - Order ID: " + getOrderId() + " - Customer ID: " + getCustomerId() + " - Status: "
-        + getStatus() + " - Order Details: " + printDetails();
+        + getStatus() + " - Order Details: " + getDetails();
   }
 
 }

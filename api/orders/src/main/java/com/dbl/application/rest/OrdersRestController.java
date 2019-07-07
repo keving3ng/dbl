@@ -34,7 +34,23 @@ public class OrdersRestController {
 
   @RequestMapping(method = RequestMethod.GET, path = "/getOrders", produces = "application/json")
   public Order getOrder(@RequestParam int OrderId) {
-    Order Order = OrderDao.getOrder(OrderId);
-    return Order;
+    Order order = OrderDao.getOrder(OrderId);
+    return order;
+  }
+
+  @RequestMapping(method = RequestMethod.GET, path = "/getAll", produces = "application/json")
+  public Order[] getAll() {
+    Order[] orderList = OrderDao.getAll();
+    return orderList;
+  }
+
+  @RequestMapping(method = RequestMethod.PUT, path = "/updateStatus", consumes = "application/json")
+  public String updateOrderStatus(@RequestBody String status, @RequestBody int orderId){
+    boolean isUpdated = OrderDao.updateStatus(status, orderId);
+    String response = "Update unsuccessful";
+    if (isUpdated) {
+      response = "Update successful";
+    }
+    return response;
   }
 }
