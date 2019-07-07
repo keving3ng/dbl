@@ -40,7 +40,7 @@ services:
         aliases:
           - mongo-db-svr
   mysql:
-    image: mysql:latest
+    image: mysql
     restart: always
     environment:
       - MYSQL_DATABASE=orderdb
@@ -49,3 +49,4 @@ services:
       - "3306:3306"
     volumes:
       - "./data/mysql:/var/lib/mysql"
+      - "./tools/mysql:/docker-entrypoint-initdb.d"

@@ -1,6 +1,7 @@
 package com.project.application.model;
 
 import java.util.Date;
+import java.text.SimpleDateFormat;
 
 public class Order {
   String dateAdded;
@@ -17,12 +18,14 @@ public class Order {
     newStatus.append("Employee: " + employee + "\n");
     newStatus.append("Date: " + formatter.format(date) + "\n");
     newStatus.append("Status: " + status + "\n");
+
+    this.status = newStatus.toString();
   }
 
   @Override
   public String toString() {
-    return "Date Added: " + date + " - Order ID: " + orderId + " - Customer ID: " + customerId + " - Status: " + status
-        + " - Order Details: " + details;
+    return "Date Added: " + dateAdded + " - Order ID: " + orderId + " - Customer ID: " + customerId + " - Status: "
+        + status + " - Order Details: " + details;
   }
 
 }

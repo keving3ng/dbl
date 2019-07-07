@@ -35,4 +35,5 @@ api/inventory/lib/
 api/inventory/local/
 /.metadata/
 
-/.gradle/
+api/orders/.gradle/
+api/orders/build/
