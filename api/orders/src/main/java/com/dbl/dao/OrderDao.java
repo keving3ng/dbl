@@ -1,10 +1,10 @@
-package com.project.dao;
+package com.dbl.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.project.application.model.Order;
-import com.project.dao.mapper.OrderMapper;
+import com.dbl.application.model.Order;
+import com.dbl.dao.mapper.OrderMapper;
 
 @Component
 public class OrderDao {

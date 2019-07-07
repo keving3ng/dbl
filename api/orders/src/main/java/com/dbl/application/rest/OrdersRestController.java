@@ -1,4 +1,4 @@
-package com.project.application.rest;
+package com.dbl.application.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.project.application.model.Order;
-import com.project.dao.OrderDao;
+import com.dbl.application.model.Order;
+import com.dbl.dao.OrderDao;
 
 @RestController
 @RequestMapping("/orders")
