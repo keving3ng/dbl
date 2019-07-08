@@ -44,7 +44,7 @@ services:
     restart: always
     environment:
       - MYSQL_DATABASE=orderdb
-      - MYSQL_ROOT_PASSWORD=sqlpassword
+      - MYSQL_ROOT_PASSWORD=password
     ports:
       - "3306:3306"
     volumes:
