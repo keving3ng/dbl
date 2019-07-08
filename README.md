@@ -1,7 +1,7 @@
 ## Overview
 DBL is a learning project where I plan to explore and implement variety of popular software tools and frameworks. 
 
-![Image of DBL Conceptual Architecture](https://i.ibb.co/FXnQXdD/dbl-Conceptual-Architecture-June-2019.png)
+![Image of DBL Conceptual Architecture](https://i.ibb.co/DQyv4pq/dbl-Conceptual-Architecture-June-2019.png)
 
 ## Getting Started
 
