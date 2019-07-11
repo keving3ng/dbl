@@ -19,8 +19,7 @@ public class Order {
     this.customerId = customerId;
     this.details = details;
 
-    updateStatus("Order placed", "Unassigned");
-
+    updateStatus("Placed", "Unassigned");
   }
 
   public String getDateAdded() {

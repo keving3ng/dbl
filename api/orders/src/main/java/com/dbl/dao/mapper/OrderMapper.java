@@ -9,7 +9,7 @@ import com.dbl.application.model.Order;
 
 @Mapper
 public interface OrderMapper {
-  @Insert("insert into orders(orderId, customerId, details) values(#{orderId}, #{customerId}, #{details})")
+  @Insert("insert into orders(customerId, details) values(#{customerId}, #{details})")
   public int insertOrder(Order order);
 
   @Select("select * from orders where id=#{orderId}")
