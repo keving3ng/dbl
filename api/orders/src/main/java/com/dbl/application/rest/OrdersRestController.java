@@ -32,9 +32,9 @@ public class OrdersRestController {
     return response;
   }
 
-  @RequestMapping(method = RequestMethod.GET, path = "/getOrders", produces = "application/json")
-  public Order getOrder(@RequestParam int OrderId) {
-    Order order = OrderDao.getOrder(OrderId);
+  @RequestMapping(method = RequestMethod.GET, path = "/getOrder", produces = "application/json")
+  public Order getOrder(@RequestParam int orderId) {
+    Order order = OrderDao.getOrder(orderId);
     return order;
   }
 
