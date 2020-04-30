@@ -5,7 +5,7 @@
   "proxy": "http://127.0.0.1:5000/",
   "dependencies": {
     "axios": "^0.18.1",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "json-reader-writer": "^1.0.4",
     "jsonfile": "^5.0.0",
     "react": "^16.8.6",
