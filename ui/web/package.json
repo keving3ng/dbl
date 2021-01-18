@@ -4,7 +4,7 @@
   "private": true,
   "proxy": "http://127.0.0.1:5000/",
   "dependencies": {
-    "axios": "^0.18.1",
+    "axios": "^0.21.1",
     "jquery": "^3.4.1",
     "json-reader-writer": "^1.0.4",
     "jsonfile": "^5.0.0",
